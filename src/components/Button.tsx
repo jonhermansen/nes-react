@@ -1,7 +1,7 @@
 import * as React from "react";
 import classNames from "classnames";
 
-export interface ButtonProps {
+export interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
   children: any;
   primary?: boolean;
   success?: boolean;
@@ -20,6 +20,7 @@ const Button: React.SFC<ButtonProps> = ({ children, className, primary, success,
       "is-error": error,
       "is-disabled": disabled
     })}
+    {...(disabled ? {disabled: true} : {})}
     {...other}
   >
     {children}
